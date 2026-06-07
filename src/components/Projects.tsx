@@ -6,53 +6,53 @@ function Projects() {
       title: "EduTwin",
       tech: "React • TypeScript • Tailwind CSS",
       description:
-        "Educational platform developed to enhance learning experiences for students and teachers through an interactive and responsive interface.",
+        "Educational platform designed to enhance learning experience with an interactive and responsive interface.",
     },
     {
-      title: "Smart Personalised AI Caretaker",
+      title: "AI Caretaker",
       tech: "Python • AI",
       description:
-        "AI-powered assistant designed to provide personalised support and assistance for specially-abled individuals.",
+        "AI assistant built to support specially-abled individuals with personalized assistance.",
     },
     {
-      title: "Animal Intrusion Detection System",
+      title: "Animal Intrusion Detection",
       tech: "Machine Learning • Python • IoT",
       description:
-        "Smart system that detects animal intrusions using machine learning models and provides real-time alerts.",
+        "Smart system that detects animal movement and triggers real-time alerts using ML models.",
     },
     {
       title: "Smart Light Control System",
       tech: "IoT",
       description:
-        "IoT-based automation solution for intelligent lighting control and energy-efficient management.",
+        "Energy-efficient automation system for intelligent lighting control.",
     },
     {
       title: "AI Dialect Translator",
-      tech: "AI • Python • NLP",
+      tech: "AI • NLP • Python",
       description:
-        "AI-powered translator capable of converting text and speech between different languages and regional dialects.",
+        "Translates speech and text across multiple languages and regional dialects using AI.",
     },
     {
-      title: "Smart Attendance Management System",
+      title: "Attendance System",
       tech: "Python • Database",
       description:
-        "Digital attendance tracking solution for educational institutions with automated record management.",
+        "Digital attendance tracking system for educational institutions with automated records.",
     },
   ];
 
   return (
     <section
       id="projects"
-      className="relative min-h-screen text-white px-8 py-20 overflow-hidden bg-transparent"
+      className="min-h-screen px-6 py-20 text-slate-900 bg-transparent relative"
     >
-      {/* Background Effects */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-500/10 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-500/10 blur-3xl rounded-full"></div>
+      {/* Soft background glow */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-[#B0E0E6]/40 blur-[160px] rounded-full"></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-[#C5E8F7]/50 blur-[160px] rounded-full"></div>
 
       {/* Heading */}
       <motion.h2
-        className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent"
-        initial={{ opacity: 0, y: -30 }}
+        className="text-4xl md:text-5xl font-bold text-center mb-14 text-[#2b3a4a]"
+        initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
@@ -60,60 +60,50 @@ function Projects() {
         Projects
       </motion.h2>
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Grid */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         {projects.map((project) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05, y: -10 }}
+            whileHover={{ scale: 1.03, y: -6 }}
             transition={{ duration: 0.3 }}
             className="
-              group
               relative
+              bg-white/25
               backdrop-blur-xl
               border
-              border-cyan-500/20
-              rounded-3xl
+              border-white/30
+              rounded-2xl
               p-6
-              overflow-hidden
-              shadow-[0_0_25px_rgba(34,211,238,0.15)]
-              hover:shadow-[0_0_50px_rgba(34,211,238,0.35)]
+              shadow-sm
+              hover:shadow-md
               transition-all
-              duration-500
+              duration-300
             "
           >
-            {/* Hover Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
-
-            {/* Top Line */}
-            <div className="mb-4 h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500"></div>
-
             {/* Title */}
-            <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <h3 className="text-xl font-semibold text-[#2f3e4e] mb-2">
               {project.title}
             </h3>
 
             {/* Tech */}
-            <p className="text-sm text-slate-300 mb-4">
+            <p className="text-sm text-[#4b5f73] mb-3">
               {project.tech}
             </p>
 
             {/* Description */}
-            <p className="text-slate-200 leading-relaxed">
+            <p className="text-sm text-[#3b4f63] leading-relaxed">
               {project.description}
             </p>
 
-            {/* Footer */}
-            <div className="mt-6">
-              <span className="text-cyan-400 text-sm font-medium">
-                🚀 Project Showcase
-              </span>
+            {/* Bottom label */}
+            <div className="mt-5 text-xs text-[#5a6f82] font-medium">
+              🚀 Project Showcase
             </div>
           </motion.div>
         ))}
+
       </div>
     </section>
   );

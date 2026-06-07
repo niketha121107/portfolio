@@ -1,69 +1,93 @@
 @import "tailwindcss";
+
+/* 🌊 Smooth scrolling */
+
 html {
     scroll-behavior: smooth;
 }
+
+
+/* 🌤️ Base background */
 
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    color: white;
     font-family: Inter, sans-serif;
-    background: linear-gradient( 135deg, #1a0b2e 0%, #6b1b6b 40%, #8b1a5e 100%);
+    color: #1f2937;
+    /* readable slate text */
+    /* 🌊 Serene pastel background */
+    background: linear-gradient( 135deg, #C9D6DF 0%, #B4C4D4 45%, #C5E8F7 100%);
 }
 
 
-/* Purple-Pink Glow */
+/* 💙 Top glow */
 
 body::before {
     content: "";
     position: fixed;
     width: 700px;
     height: 700px;
-    background: #d946ef;
+    background: #B0E0E6;
     filter: blur(200px);
-    opacity: 0.2;
+    opacity: 0.35;
     top: -250px;
     right: -250px;
     z-index: -1;
+    border-radius: 50%;
 }
 
 
-/* Deep Purple Glow */
+/* 🌫 Bottom glow */
 
 body::after {
     content: "";
     position: fixed;
     width: 700px;
     height: 700px;
-    background: #b91f97;
+    background: #AEC6CF;
     filter: blur(200px);
-    opacity: 0.18;
+    opacity: 0.3;
     bottom: -250px;
     left: -250px;
     z-index: -1;
+    border-radius: 50%;
 }
 
 
-/* Scrollbar */
+/* 🌊 Scrollbar (VISIBLE + NICE CONTRAST) */
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
+
+
+/* Track */
 
 ::-webkit-scrollbar-track {
-    background: #1e1b4b;
+    background: #B4C4D4;
 }
+
+
+/* Thumb */
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient( to bottom, #ec4899, #a855f7);
+    background: linear-gradient( to bottom, #6FA8DC, #4F93CE, #3F7FBF);
     border-radius: 50px;
+    border: 2px solid #B4C4D4;
 }
 
 
-/* Text Selection */
+/* Hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient( to bottom, #3F7FBF, #2F6FA8);
+}
+
+
+/* ✨ Text selection */
 
 ::selection {
-    background: #ec4899;
+    background: #6FA8DC;
     color: white;
 }
