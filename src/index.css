@@ -7,87 +7,87 @@ html {
 }
 
 
-/* 🌤️ Base background */
+/* 🌑 Base background — dark moody theme */
 
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: Inter, sans-serif;
-    color: #1f2937;
-    /* readable slate text */
-    /* 🌊 Serene pastel background */
-    background: linear-gradient( 135deg, #C9D6DF 0%, #B4C4D4 45%, #C5E8F7 100%);
+    font-family: 'DM Sans', Inter, sans-serif;
+    color: #f0e8e8;
+    background: #1a1a1f;
 }
 
 
-/* 💙 Top glow */
+/* 🌸 Top glow — dusty rose */
 
 body::before {
     content: "";
     position: fixed;
-    width: 700px;
-    height: 700px;
-    background: #B0E0E6;
-    filter: blur(200px);
-    opacity: 0.35;
-    top: -250px;
-    right: -250px;
+    width: 600px;
+    height: 600px;
+    background: #3d1f2d;
+    filter: blur(180px);
+    opacity: 0.7;
+    top: -200px;
+    left: -150px;
     z-index: -1;
     border-radius: 50%;
 }
 
 
-/* 🌫 Bottom glow */
+/* 💜 Bottom glow — deep plum */
 
 body::after {
     content: "";
     position: fixed;
-    width: 700px;
-    height: 700px;
-    background: #AEC6CF;
-    filter: blur(200px);
-    opacity: 0.3;
-    bottom: -250px;
-    left: -250px;
+    width: 500px;
+    height: 500px;
+    background: #2a1a2e;
+    filter: blur(160px);
+    opacity: 0.6;
+    bottom: -200px;
+    right: -150px;
     z-index: -1;
     border-radius: 50%;
 }
 
 
-/* 🌊 Scrollbar (VISIBLE + NICE CONTRAST) */
+/* 🌸 SCROLLBAR — mauve/rose to match dark portfolio theme */
+
+
+/* Chrome / Edge / Safari */
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
-
-
-/* Track */
 
 ::-webkit-scrollbar-track {
-    background: #B4C4D4;
+    background: #1e1825;
 }
-
-
-/* Thumb */
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient( to bottom, #6FA8DC, #4F93CE, #3F7FBF);
+    background: linear-gradient( 180deg, #c0748a 0%, #9a5070 50%, #7a3858 100%);
     border-radius: 50px;
-    border: 2px solid #B4C4D4;
+    border: 2px solid #1e1825;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient( 180deg, #d4859a, #b06080);
 }
 
 
-/* Hover */
+/* Firefox */
 
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient( to bottom, #3F7FBF, #2F6FA8);
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #9a5070 #1e1825;
 }
 
 
 /* ✨ Text selection */
 
 ::selection {
-    background: #6FA8DC;
-    color: white;
+    background: #c0748a;
+    color: #fff0f3;
 }

@@ -5,65 +5,73 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center px-6 text-[#1f2a37]"
+      className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse at 20% 50%, #3d1f2d 0%, #1a1a1f 55%),
+          radial-gradient(ellipse at 80% 20%, #2a1a2e 0%, transparent 60%)
+        `,
+      }}
     >
+      {/* soft glow */}
+      <div className="absolute top-[-120px] left-[-120px] w-[450px] h-[450px] bg-pink-500/10 blur-[160px] rounded-full"></div>
+      <div className="absolute bottom-[-120px] right-[-120px] w-[450px] h-[450px] bg-purple-500/10 blur-[160px] rounded-full"></div>
+
+      {/* 💎 Glass Card */}
       <motion.div
-        className="w-full max-w-2xl text-center backdrop-blur-xl bg-white/40 border border-white/30 rounded-3xl p-10 shadow-lg"
+        className="w-full max-w-2xl text-center backdrop-blur-2xl bg-white/5 border border-white/10 rounded-3xl p-10 shadow-xl"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1f2a37]">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#f0e8e8]">
           Contact Me
         </h2>
 
-        <p className="text-[#3b4a5a] mb-10">
-          Let’s connect — I’m always open to collaboration and learning 🚀
+        <p className="text-[#a07888] mb-10">
+          Let’s connect — open for collaboration, learning & opportunities 🚀
         </p>
 
-        {/* ICON LINKS */}
-        <div className="flex justify-center gap-10 text-4xl mb-8">
+        {/* ICONS */}
+        <div className="flex justify-center gap-10 text-4xl mb-10">
 
-          {/* GitHub */}
           <a
             href="https://github.com/niketha121107"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#1f2a37] hover:text-[#0ea5e9] transition duration-300"
+            className="text-[#d4b8c0] hover:text-[#d4859a] transition duration-300"
           >
             <FaGithub />
           </a>
 
-          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/niketha-ms-1a5262379"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#1f2a37] hover:text-[#0ea5e9] transition duration-300"
+            className="text-[#d4b8c0] hover:text-[#d4859a] transition duration-300"
           >
             <FaLinkedin />
           </a>
 
-          {/* Email */}
           <a
             href="mailto:msniketha1211@gmail.com"
-            className="text-[#1f2a37] hover:text-[#0ea5e9] transition duration-300"
+            className="text-[#d4b8c0] hover:text-[#d4859a] transition duration-300"
           >
             <FaEnvelope />
           </a>
         </div>
 
-        {/* TEXT LINKS (VISIBLE + CLEAN) */}
-        <div className="space-y-3 text-sm md:text-base text-[#334155]">
+        {/* LINKS */}
+        <div className="space-y-3 text-sm md:text-base text-[#a07888]">
 
           <p>
             💻 GitHub:{" "}
             <a
               href="https://github.com/niketha121107"
               target="_blank"
-              className="text-[#0ea5e9] font-medium hover:underline"
+              className="text-[#d4859a] font-medium hover:underline"
             >
               github.com/niketha121107
             </a>
@@ -74,7 +82,7 @@ function Contact() {
             <a
               href="https://www.linkedin.com/in/niketha-ms-1a5262379"
               target="_blank"
-              className="text-[#0ea5e9] font-medium hover:underline"
+              className="text-[#d4859a] font-medium hover:underline"
             >
               linkedin.com/in/niketha-ms
             </a>
@@ -82,7 +90,7 @@ function Contact() {
 
           <p>
             📧 Email:{" "}
-            <span className="text-[#0ea5e9] font-medium">
+            <span className="text-[#d4859a] font-medium">
               msniketha1211@gmail.com
             </span>
           </p>

@@ -1,96 +1,268 @@
-import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 text-slate-800 bg-transparent">
+    <section
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse at 20% 50%, #3d1f2d 0%, #1a1a1f 55%),
+          radial-gradient(ellipse at 80% 20%, #2a1a2e 0%, transparent 60%)
+        `,
+        backgroundColor: "#1a1a1f",
+        fontFamily: "'DM Sans', sans-serif",
+      }}
+    >
+      {/* Google Fonts */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
-      {/* 🌊 Background glow (same soft system as About page) */}
-      <div className="absolute top-[-120px] left-[-120px] w-[500px] h-[500px] bg-[#B0E0E6]/40 blur-[180px] rounded-full"></div>
-      <div className="absolute bottom-[-120px] right-[-120px] w-[500px] h-[500px] bg-[#C5E8F7]/50 blur-[180px] rounded-full"></div>
-      <div className="absolute top-1/2 left-1/2 w-[350px] h-[350px] bg-[#AEC6CF]/40 blur-[160px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        .hero-blob-1 {
+          position: absolute;
+          top: -100px; left: -100px;
+          width: 500px; height: 500px;
+          background: radial-gradient(circle, rgba(180,100,120,0.18) 0%, transparent 70%);
+          border-radius: 50%;
+          pointer-events: none;
+        }
 
-      {/* ✨ Floating elements (softened colors) */}
-      <div className="absolute top-24 left-20 w-2 h-2 bg-[#4A90A4]/40 rounded-full animate-pulse"></div>
-      <div className="absolute top-40 right-24 w-3 h-3 bg-[#5B8FA8]/40 rounded-full animate-bounce"></div>
-      <div className="absolute bottom-24 left-1/3 w-2 h-2 bg-[#AEC6CF]/60 rounded-full animate-ping"></div>
+        .hero-blob-2 {
+          position: absolute;
+          bottom: -80px; right: -80px;
+          width: 400px; height: 400px;
+          background: radial-gradient(circle, rgba(120,80,160,0.15) 0%, transparent 70%);
+          border-radius: 50%;
+          pointer-events: none;
+        }
 
-      {/* 💎 Glass Card */}
-      <motion.div
-        className="z-10 max-w-2xl text-center backdrop-blur-2xl bg-white/40 p-10 rounded-3xl border border-white/60 shadow-lg"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
+        .stat-card {
+          animation: cardFadeIn 1s 0.3s ease both;
+        }
 
-        {/* 👋 NAME (FIXED: BLACK + BOLD) */}
-        <h1 className="text-4xl md:text-6xl font-extrabold text-black">
-          Hi, I'm{" "}
-          <span className="text-black font-black">
-            Niketha
-          </span>
-          👋
-        </h1>
+        @keyframes cardFadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
 
-        {/* ✨ Role animation */}
-        <div className="mt-5">
-          <TypeAnimation
-            sequence={[
-              "AI & Data Science Student",
-              2000,
-              "Aspiring AI Engineer",
-              2000,
-              "Web Development Learner",
-              2000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-            className="text-[#000080] text-xl md:text-2xl font-medium"
-          />
-        </div>
+        .stat-row {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 14px 0;
+          border-bottom: 1px solid rgba(200,140,160,0.1);
+        }
 
-        {/* 🧠 About line */}
-        <p className="text-slate-700 mt-6 text-base md:text-lg leading-relaxed">
-          Passionate learner exploring Artificial Intelligence, Data Science and modern web development.
-        </p>
+        .stat-row:last-child {
+          border-bottom: none;
+        }
 
-        {/* 🎯 Goal */}
-        <p className="text-slate-500 text-sm mt-4">
-          🎯 Goal: Become a strong AI Engineer & Developer <br />
-          💡 Mindset: Learn • Build • Improve • Grow
-        </p>
+        .stat-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 10px;
+          background: rgba(192,116,138,0.12);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1rem;
+          flex-shrink: 0;
+        }
 
-        {/* 🔘 Buttons */}
-        <div className="mt-8 flex gap-4 justify-center flex-wrap">
+        .stat-label {
+          font-size: 0.7rem;
+          color: #6e5a5a;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          margin-bottom: 2px;
+        }
 
-          <a
-            href="/resume/Niketha_MS_Resume.pdf"
-            target="_blank"
-            className="px-6 py-3 rounded-xl bg-white/50 border border-white/60 text-slate-700 backdrop-blur-md hover:bg-white/70 transition hover:scale-105"
+        .stat-value {
+          font-size: 0.92rem;
+          color: #d4b8c0;
+          font-weight: 500;
+        }
+      `}</style>
+
+      {/* Background blobs */}
+      <div className="hero-blob-1" />
+      <div className="hero-blob-2" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+
+        {/* LEFT SIDE */}
+        <motion.div
+          className="flex-1 text-center md:text-left"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <p
+            className="text-xs tracking-widest uppercase mb-4 font-medium"
+            style={{ color: "#c0748a", letterSpacing: "0.2em" }}
           >
-            Resume
-          </a>
+            ✿ welcome to my portfolio
+          </p>
 
-          <a
-            href="https://github.com/niketha121107"
-            target="_blank"
-            className="px-6 py-3 rounded-xl bg-white/50 border border-white/60 text-slate-700 backdrop-blur-md hover:bg-white/70 transition hover:scale-105"
+          <h1
+            className="leading-tight mb-3"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(2.6rem, 5vw, 4rem)",
+              fontWeight: 700,
+              color: "#f0e8e8",
+            }}
           >
-            GitHub
-          </a>
+            Hi there,
+            <br />
+            I'm{" "}
+            <em style={{ fontStyle: "italic", color: "#d4859a" }}>
+              Niketha
+            </em>
+          </h1>
 
-          <a
-            href="mailto:msniketha1211@gmail.com"
-            className="px-6 py-3 rounded-xl bg-white/50 border border-white/60 text-slate-700 backdrop-blur-md hover:bg-white/70 transition hover:scale-105"
+          <div
+            className="mb-6 text-base font-normal"
+            style={{ color: "#a07888", minHeight: "1.6em" }}
           >
-            Contact
-          </a>
+            <TypeAnimation
+              sequence={[
+                "AI & Data Science Student",
+                2000,
+                "Aspiring Software Engineer",
+                2000,
+                "Frontend Developer in Progress",
+                2000,
+              ]}
+              speed={50}
+              repeat={Infinity}
+            />
+          </div>
 
-        </div>
+          <p
+            className="text-sm leading-relaxed mb-9 max-w-md mx-auto md:mx-0"
+            style={{ color: "#8a7070" }}
+          >
+            A passionate engineering student focused on building real-world
+            applications using AI, data science, and modern web technologies.
+          </p>
 
-      </motion.div>
+          {/* BUTTONS */}
+          <div className="flex flex-wrap gap-3 justify-center md:justify-start">
 
+            <a
+              href="/resume/Niketha_MS_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-full text-sm font-medium"
+              style={{
+                background: "transparent",
+                color: "#fff0f3",
+                boxShadow: "0 4px 20px rgba(180,100,120,0.3)",
+              }}
+            >
+              ✦ View Resume
+            </a>
+
+            <a
+              href="https://github.com/niketha121107"
+              target="_blank"
+              rel="noreferrer"
+              className="px-6 py-3 rounded-full text-sm font-medium"
+              style={{
+                background: "transparent",
+                color: "#a07888",
+                border: "1px solid rgba(180,120,140,0.35)",
+              }}
+            >
+              GitHub
+            </a>
+
+            <a
+              href="mailto:msniketha1211@gmail.com"
+              className="px-6 py-3 rounded-full text-sm font-medium"
+              style={{
+                background: "transparent",
+                color: "#a07888",
+                border: "1px solid rgba(180,120,140,0.35)",
+              }}
+            >
+              Contact
+            </a>
+
+          </div>
+        </motion.div>
+
+        {/* RIGHT CARD */}
+        <motion.div
+          className="stat-card flex-shrink-0"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{
+            width: "260px",
+            borderRadius: "20px",
+            background: "linear-gradient(160deg, #25202e 0%, #1e1825 100%)",
+            border: "1px solid rgba(200,140,160,0.15)",
+            boxShadow:
+              "0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.03)",
+            padding: "22px 20px",
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <div
+            style={{
+              marginBottom: "16px",
+              paddingBottom: "14px",
+              borderBottom: "1px solid rgba(200,140,160,0.1)",
+            }}
+          >
+            <p style={{ fontSize: "0.68rem", color: "#6e5a5a" }}>
+              Profile
+            </p>
+
+            <p style={{ fontSize: "1rem", color: "#e8d8dc", fontWeight: 600 }}>
+              Niketha MS
+            </p>
+
+            <p style={{ fontSize: "0.78rem", color: "#a07888" }}>
+              B.Tech - AI & Data Science
+            </p>
+          </div>
+
+          <div className="stat-row">
+            <div className="stat-icon">🎓</div>
+            <div>
+              <p className="stat-label">College</p>
+              <p className="stat-value">
+                Karunya Institute (2025–2029)
+              </p>
+            </div>
+          </div>
+
+          <div className="stat-row">
+            <div className="stat-icon">🏫</div>
+            <div>
+              <p className="stat-label">School</p>
+              <p className="stat-value">
+                Avila Convent Matriculation
+              </p>
+            </div>
+          </div>
+
+          <div className="stat-row">
+            <div className="stat-icon">💡</div>
+            <div>
+              <p className="stat-label">Interest</p>
+              <p className="stat-value">
+                AI · Data Science · Web Dev
+              </p>
+            </div>
+          </div>
+
+        </motion.div>
+      </div>
     </section>
   );
 }
